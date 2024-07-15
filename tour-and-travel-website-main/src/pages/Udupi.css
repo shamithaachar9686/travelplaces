@@ -1,0 +1,105 @@
+/* src/pages/Udupi.css */
+.udupi-container {
+    background-color: #f9fafb; /* Light gray background */
+    padding-top: 2.5px; /* Padding top */
+    padding-bottom: 2.5rem; /* Padding bottom */
+  }
+  
+  .udupi-header {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-left-width: 8px;
+    border-left-color: rgba(59, 130, 246, 0.5); /* Primary/50 border color */
+    padding-left: 0.5rem;
+    font-size: 1.875rem; /* 3xl */
+    font-weight: bold;
+  }
+  
+  .udupi-description {
+    margin-bottom: 1rem;
+  }
+  
+  .udupi-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* Single column for small screens */
+    gap: 1rem; /* Gap between grid items */
+  }
+  
+  @media (min-width: 640px) {
+    .udupi-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)); /* Two columns for small screens and above */
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .udupi-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr)); /* Three columns for medium screens and above */
+    }
+  }
+  
+  /* Additional CSS for PlaceCard component */
+  .place-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #e5e7eb; /* gray-200 */
+    border-radius: 0.375rem; /* rounded */
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.3s;
+  }
+  
+  .place-card:hover {
+    transform: translateY(-0.5rem); /* Lift effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+  }
+  
+  .place-card-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 16/9; /* Maintain 16:9 aspect ratio */
+  }
+  
+  .place-card-content {
+    padding: 0.75rem; /* Smaller padding */
+  }
+  
+  .place-card-title {
+    font-size: 1rem; /* Smaller font size */
+    font-weight: bold;
+    color: #1a202c; /* gray-900 */
+  }
+  
+  .place-card-location {
+    font-size: 0.875rem; /* Smaller font size */
+    color: #4a5568; /* gray-600 */
+  }
+  
+  .place-card-description {
+    margin-top: 0.25rem; /* Smaller margin */
+    font-size: 0.875rem; /* Smaller font size */
+    color: #2d3748; /* gray-700 */
+  }
+  
+  .place-card-type,
+  .place-card-opening {
+    margin-top: 0.25rem; /* Smaller margin */
+    font-size: 0.75rem; /* Smaller font size */
+    color: #718096; /* gray-500 */
+  }
+  
+  .place-card-button {
+    margin-top: 0.5rem; /* Smaller margin */
+    background-color: #3b82f6; /* primary */
+    color: #ffffff;
+    padding: 0.25rem 0.5rem; /* Smaller padding */
+    font-size: 0.875rem; /* Smaller font size */
+    border-radius: 0.375rem; /* rounded */
+    transition: background-color 0.3s;
+  }
+  
+  .place-card-button:hover {
+    background-color: #2563eb; /* primary-dark */
+  }
+  

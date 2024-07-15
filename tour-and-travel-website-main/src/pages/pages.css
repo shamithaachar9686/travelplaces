@@ -1,0 +1,89 @@
+/* ShreeLakshmiVishnumoorthyTemple.css */
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Container Styles */
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+  background-color: #f0f4f8; /* Light background color */
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  font-family: 'Times New Roman', Times, serif; /* Apply font to the container */
+}
+
+.container:hover {
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+  background-color: #e1e9f0; /* Slightly darker on hover */
+}
+
+.container h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.img-wrapper {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.img-wrapper img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.img-wrapper img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  color: #555;
+  line-height: 1.8;
+  font-family: 'Roboto', sans-serif;
+}
+
+.text-md,
+.text-sm {
+  color: #777;
+  margin-top: 12px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+a.text-blue-500 {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+a.text-blue-500:hover {
+  color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .container h1 {
+    font-size: 2rem;
+  }
+
+  .text-xl {
+    font-size: 1.125rem;
+  }
+}
