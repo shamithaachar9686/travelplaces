@@ -1,4 +1,4 @@
-.contact-us {
+/* .contact-us {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
@@ -49,4 +49,93 @@
   .contact-us button:hover {
     background-color: #0056b3;
   }
+   */
+
+
+   /* styles.css */
+
+   form {
+    max-width: 600px;
+
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #2ba6a8;
+  }
   
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333333;
+    font-size: 1em;
+  }
+  
+  input, textarea {
+    padding: 10px;
+    font-size: 1em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  button {
+    display: block;
+      width: 50%;
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: #5b5c5e;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  /* button:hover {
+    background-color: #0056b3;
+  } */
+  
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  p {
+    font-size: 1.2em;
+    color: #007BFF;
+  }
+  
+  .ValidationError {
+    color: red;
+    font-size: 0.9em;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.25rem; /* Padding inside the button */
+    font-size: 1rem; /* Font size */
+    font-weight: bold; /* Font weight */
+    text-align: center; /* Center align the text */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Pointer cursor on hover */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.btn-primary {
+    background-color: #686766; /* Orange background color */
+    color: white; /* White text color */
+}
+
+.btn-primary:hover {
+    background-color: #52504f; /* Darker orange on hover */
+}

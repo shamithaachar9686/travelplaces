@@ -162,6 +162,10 @@
 
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from 'react'
+// import 'bootstrap/dist/css/bootstrap.min.css'
+import Signup from './Signup'
+import Login from './Login'
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
@@ -173,7 +177,7 @@ import "aos/dist/aos.css";
 import SuggestUs from './pages/SuggestUs';
 import ContactUs from './pages/ContactUs';
 import BlogsComp from "./components/Blogs/BlogsComp";
-import DistrictPopup from "./pages/DistrictPopup";
+import DistrictPage from "./pages/DistrictPage.jsx";
 import DakshinaKannada from "./pages/DakshinaKannada";
 import Udupi from "./pages/Udupi";
 import UttaraKannada from "./pages/UttaraKannada";
@@ -225,9 +229,11 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path='/register' element={<Signup/>}></Route>
+   <Route path='/login' element={<Login/>}></Route>
           <Route path="best-places" element={<PlacesRoute />} />
           <Route path="about" element={<About />} />
-          <Route path="suggestus" element={<SuggestUs />} />
+          <Route path="/suggestus" element={<SuggestUs />} />
           <Route path="contactus" element={<ContactUs />} />
           <Route path="blogscomp" element={<BlogsComp />} />
        
@@ -235,7 +241,7 @@ const App = () => {
         </Route>
 
         {/* Routes outside of Layout */}
-        <Route path="district-popup" element={<DistrictPopup />} />
+        <Route path="district-page" element={<DistrictPage />} />
         <Route path="/place/:title" element={<PlaceDetail />} />
         <Route path="dakshina-kannada" element={<DakshinaKannada />} />
         {/* <Route path="/" element={<DakshinaKannada />} /> */}

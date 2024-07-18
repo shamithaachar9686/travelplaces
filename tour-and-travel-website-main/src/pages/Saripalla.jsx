@@ -2,7 +2,7 @@
 // KoilaFarm.js
 import React from 'react';
 import Img8 from '../assets/places/saripalla.jpg';
-import Img72 from '../assets/places/saripalla2.jpg';
+import Img72 from '../assets/places/saripalla10.jpg';
 
 
 const Saripalla= () => {

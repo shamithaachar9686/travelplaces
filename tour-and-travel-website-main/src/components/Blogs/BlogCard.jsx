@@ -30,7 +30,7 @@ const BlogCard = ({ image, date, title, description, author }) => {
           </div>
           <div className="space-y-2 py-3">
             <h1 className="line-clamp-1 font-bold">{title}</h1>
-            <p className="line-clamp-2">{description}</p>
+            <p className="line-clamp-2 text-black">{description}</p>
           </div>
         </div>
       </Link>

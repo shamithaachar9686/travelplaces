@@ -3,7 +3,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Place = ({  img, }) => {
+const Place = ({  img}) => {
   return (
     <div className="place-card bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
       <img src={img}  className="w-full h-48 object-cover" />

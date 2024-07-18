@@ -150,85 +150,85 @@
 // });
 /////////////////////////////////////////////////////////////////============
 
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const mongoose = require('mongoose');
+const express=require("express")
+const mongoose=require("mongoose")
+const cors=require("cors")
+const multer = require("multer");
+const EmployeeModel=require('./models/Employee')
+const SuggestionModel=require('./models/Suggestion');
 
 const app = express();
-const PORT = process.env.PORT || 5173;
-
-// Middleware
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(cors());
 
-// MongoDB connection
-mongoose.connect('mongodb://localhost:27017/suggestions', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+
+//multer 
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, 'uploads/'); // Directory to store uploaded files
+    },
+    filename: (req, file, cb) => {
+      cb(null, Date.now() + '-' + file.originalname); // Unique filename
+    }
+  });
+  const upload = multer({ storage: storage });
+
+
+
+ mongoose.connect("mongodb://127.0.0.1:27017/employee",{ useNewUrlParser: true, useUnifiedTopology: true });
+ app.post('/login',(req,res)=>{
+    const{email,password}=req.body;
+    EmployeeModel.findOne({email:email})
+    .then(user=>{
+        if(user){
+        if(user.password===password){
+            res.json("Success");
+
+        }else{
+            res.json("The password is incorrect");
+        }
+    }else{
+        res.json("No records Existed");
+    }
+    })
+    .catch(err => res.status(500).json(err));
+ });
+
+app.post('/register',(req,res)=>{
+EmployeeModel.create(req.body)
+.then(employees => res.json(employees))
+.catch(err=>res.json(err))
 });
 
-// User data store
-let users = [];
 
-// User Routes
-app.post('/api/submit', (req, res) => {
-  const { name, district } = req.body;
-  console.log('Received data:', { name, district });
+// app.post('/suggestus',upload.array('photos'),(req,res)=>{
+//     SuggestionModel.create(req.body)
+//     .then(suggests => res.json(suggests))
+//     .catch(err=>res.json(err))
+//     });
 
-  // Process the data (e.g., save to database or array)
-  users.push({ name, district });
 
-  // Respond to the client
-  res.status(200).json({ message: 'User saved successfully' });
-});
+//  app.listen(3001,()=>{
+//     console.log("Server is running")
+//  });
 
-app.get('/api/users', (req, res) => {
-  res.status(200).json(users);
-});
-
-// Suggestion Schema
-const suggestionSchema = new mongoose.Schema({
-  placeName: String,
-  location: String,
-  placeType: String,
-  photos: [String],
-  description: String,
-});
-
-const Suggestion = mongoose.model('Suggestion', suggestionSchema);
-
-// Suggestion Routes
-app.post('/api/suggestions', async (req, res) => {
-  const { placeName, location, placeType, photos, description } = req.body;
-
-  try {
-    const newSuggestion = new Suggestion({
+app.post('/suggestus', upload.array('photos'), (req, res) => {
+    const { placeName, location, placeType, description } = req.body;
+    const photos = req.files.map(file => file.path);
+  
+    const newSuggestion = new SuggestionModel({
       placeName,
       location,
       placeType,
       photos,
-      description,
+      description
     });
-    await newSuggestion.save();
-    res.status(201).send('Suggestion saved successfully');
-  } catch (err) {
-    console.error('Error saving suggestion:', err);
-    res.status(500).send('Error saving suggestion');
-  }
-});
-
-app.get('/api/suggestions', async (req, res) => {
-  try {
-    const suggestions = await Suggestion.find();
-    res.json(suggestions);
-  } catch (err) {
-    console.error('Error fetching suggestions:', err);
-    res.status(500).send('Error fetching suggestions');
-  }
-});
-
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+  
+    newSuggestion.save()
+      .then(suggestion => res.json(suggestion))
+      .catch(err => res.status(500).json(err));
+  });
+  
+  app.listen(3001, () => {
+    console.log("Server is running on port 3001");
+  });
